@@ -4,7 +4,7 @@
 #
 Name     : pypi-neat_python
 Version  : 0.92
-Release  : 9
+Release  : 10
 URL      : https://files.pythonhosted.org/packages/f6/92/2778744d408304b77eb39c1edf91eaced1e18e1cd45a766a20fd1b716c22/neat-python-0.92.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f6/92/2778744d408304b77eb39c1edf91eaced1e18e1cd45a766a20fd1b716c22/neat-python-0.92.tar.gz
 Summary  : A NEAT (NeuroEvolution of Augmenting Topologies) implementation
@@ -13,6 +13,9 @@ License  : BSD-3-Clause
 Requires: pypi-neat_python-python = %{version}-%{release}
 Requires: pypi-neat_python-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 No detailed description available
@@ -48,15 +51,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656391947
+export SOURCE_DATE_EPOCH=1672292330
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
