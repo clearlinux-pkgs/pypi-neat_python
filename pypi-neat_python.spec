@@ -7,7 +7,7 @@
 #
 Name     : pypi-neat_python
 Version  : 0.92
-Release  : 16
+Release  : 17
 URL      : https://files.pythonhosted.org/packages/f6/92/2778744d408304b77eb39c1edf91eaced1e18e1cd45a766a20fd1b716c22/neat-python-0.92.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f6/92/2778744d408304b77eb39c1edf91eaced1e18e1cd45a766a20fd1b716c22/neat-python-0.92.tar.gz
 Summary  : A NEAT (NeuroEvolution of Augmenting Topologies) implementation
